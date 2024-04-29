@@ -1,0 +1,14 @@
+//#version 330 es
+
+uniform vec3 scale;
+
+varying vec3 vertexPos;
+varying vec3 camPos;
+
+void main(void) {
+    vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+    gl_Position = projectionMatrix * mvPosition;
+    vertexPos = position / scale + 0.5;
+    camPos = cameraPosition / scale + 0.5;
+}
+
